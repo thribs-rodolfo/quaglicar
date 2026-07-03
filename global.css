@@ -197,23 +197,51 @@ a {
 }
 
 /* ==========================================================================
-   Galeria de feedbacks
+   Grade de depoimentos (Feedbacks)
    ========================================================================== */
-.galeria-feedbacks {
+.grade-depoimentos {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  margin: 1rem 0;
 }
 
-.galeria-feedbacks figure {
-  margin: 0;
-}
-
-.galeria-feedbacks img {
-  width: 100%;
+.cartao-depoimento {
+  background-color: var(--cor-fundo-claro);
   border-radius: 8px;
+  padding: 1.25rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--cor-cabecalho);
+  display: flex;
+  flex-direction: column;
+}
+
+.depoimento-nome {
+  color: var(--cor-cabecalho);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+.depoimento-avaliacoes {
+  color: var(--cor-texto);
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 0 0 0.5rem;
+}
+
+.depoimento-estrelas {
+  color: var(--cor-menu-link);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+}
+
+.depoimento-texto {
+  margin: 0;
+  text-align: justify;
 }
 
 /* ==========================================================================
@@ -330,7 +358,7 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .galeria-feedbacks {
+  .grade-depoimentos {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -348,7 +376,7 @@ a {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .galeria-feedbacks {
+  .grade-depoimentos {
     grid-template-columns: repeat(3, 1fr);
   }
 }
