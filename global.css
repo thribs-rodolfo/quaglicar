@@ -133,17 +133,14 @@ a {
   width: 100%;
 }
 
-/* Banners de destaque */
-.banners-destaque {
+/* Destaques — mesma estrutura de card dos servicos, sem botao */
+.grade-destaques {
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 1rem 0 2rem;
-}
-
-.banners-destaque img {
-  width: 100%;
-  border-radius: 6px;
+  gap: 1.5rem;
 }
 
 /* ==========================================================================
@@ -171,8 +168,25 @@ a {
   width: 100%;
 }
 
+/* Texto extraido das artes (antes embutido na imagem), agora HTML real */
+.cartao-servico-texto {
+  padding: 1rem 1rem 0.75rem;
+  flex: 1 1 auto;
+}
+
+.cartao-servico-titulo {
+  color: var(--verde-petroleo);
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.cartao-servico-descricao {
+  margin: 0;
+  color: var(--grafite);
+}
+
 .cartao-servico-acao {
-  padding: 1rem;
+  padding: 0.25rem 1rem 1rem;
   text-align: center;
 }
 
@@ -401,7 +415,7 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .banners-destaque {
+  .grade-destaques {
     grid-template-columns: repeat(2, 1fr);
   }
 

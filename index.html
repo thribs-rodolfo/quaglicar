@@ -33,7 +33,7 @@
     <main class="conteudo-principal">
       <h1 class="titulo-pagina">Quaglicar — Chaveiro Automotivo</h1>
 
-      <!-- Faixa da frase (imagem com texto embutido) -->
+      <!-- Faixa da frase (imagem decorativa com o slogan) -->
       <figure class="faixa-frase">
         <img
           src="imagens/faixa-frase.jpeg"
@@ -41,104 +41,164 @@
         />
       </figure>
 
-      <!-- Banners de destaque -->
-      <section class="banners-destaque" aria-label="Destaques">
-        <img
-          src="imagens/banner-topo-1.jpg"
-          alt="Banner de destaque da Quaglicar sobre serviços de chaves automotivas"
-          loading="lazy"
-        />
-        <img
-          src="imagens/banner-topo-2.jpg"
-          alt="Banner de destaque da Quaglicar sobre atendimento automotivo"
-          loading="lazy"
-        />
+      <!-- Destaques: cada card usa só a foto; título em h2 e descrição em p -->
+      <section aria-label="Destaques">
+        <ul class="grade-destaques">
+          <li class="cartao-servico">
+            <img
+              src="imagens/copia-de-chave.jpg"
+              alt="Bancada com máquinas de cópia e painel de chaves automotivas"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Cópia de chave</h2>
+              <p class="cartao-servico-descricao">
+                Precisou fazer uma chave reserva do carro? Cópia feita com
+                agilidade! Trabalhamos com chaves automotivas, tipo Yale,
+                codificadas, pantográficas, chave canivete e muito mais.
+              </p>
+            </div>
+          </li>
+          <li class="cartao-servico">
+            <img
+              src="imagens/estacionamento-privativo.jpg"
+              alt="Estacionamento coberto e privativo da Quaglicar com carros de clientes"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Estacionamento amplo e privativo</h2>
+              <p class="cartao-servico-descricao">
+                Nosso estacionamento é amplo e privativo para maior comodidade
+                dos nossos clientes.
+              </p>
+            </div>
+          </li>
+        </ul>
       </section>
 
-      <!-- Grade de serviços (cada card é uma imagem com o texto embutido) -->
-      <h2 class="titulo-secao">Nossos serviços</h2>
-      <ul class="grade-servicos">
-        <li class="cartao-servico">
-          <img
-            src="imagens/servico-chave-canivete.jpg"
-            alt="Serviço de chave canivete"
-            loading="lazy"
-          />
-          <div class="cartao-servico-acao">
-            <a
-              class="botao-solicitar"
-              href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              >Solicitar</a
-            >
-          </div>
-        </li>
-        <li class="cartao-servico">
-          <img
-            src="imagens/servico-chaves-codificadas.jpg"
-            alt="Serviço de chaves codificadas"
-            loading="lazy"
-          />
-          <div class="cartao-servico-acao">
-            <a
-              class="botao-solicitar"
-              href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              >Solicitar</a
-            >
-          </div>
-        </li>
-        <li class="cartao-servico">
-          <img
-            src="imagens/servico-porta-de-carro.jpg"
-            alt="Serviço de abertura de porta de carro"
-            loading="lazy"
-          />
-          <div class="cartao-servico-acao">
-            <a
-              class="botao-solicitar"
-              href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              >Solicitar</a
-            >
-          </div>
-        </li>
-        <li class="cartao-servico">
-          <img
-            src="imagens/servico-em-porta.jpg"
-            alt="Serviço realizado em porta de veículo"
-            loading="lazy"
-          />
-          <div class="cartao-servico-acao">
-            <a
-              class="botao-solicitar"
-              href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              >Solicitar</a
-            >
-          </div>
-        </li>
-        <li class="cartao-servico">
-          <img
-            src="imagens/servico-carro-de-entrega.jpg"
-            alt="Chaveiro móvel: carro de entrega da Quaglicar"
-            loading="lazy"
-          />
-          <div class="cartao-servico-acao">
-            <a
-              class="botao-solicitar"
-              href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              >Solicitar</a
-            >
-          </div>
-        </li>
-      </ul>
+      <!-- Serviços: cada card usa só a foto; título em h2 e descrição em p -->
+      <section aria-label="Nossos serviços">
+        <ul class="grade-servicos">
+          <li class="cartao-servico">
+            <img
+              src="imagens/servico-chave-codificada.jpg"
+              alt="Chave automotiva codificada do tipo canivete"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Chave codificada</h2>
+              <p class="cartao-servico-descricao">
+                Perdeu ou está com algum problema na chave do seu carro? Nós
+                confeccionamos outra chave para você!
+              </p>
+            </div>
+            <div class="cartao-servico-acao">
+              <a
+                class="botao-solicitar"
+                href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >Solicitar</a
+              >
+            </div>
+          </li>
+          <li class="cartao-servico">
+            <img
+              src="imagens/servico-troca-bateria-e-reparos.jpg"
+              alt="Duas chaves automotivas com controle para troca de bateria e reparos"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Troca de bateria e reparos</h2>
+              <p class="cartao-servico-descricao">
+                Seu controle não aceita mais seus comandos? Ou não funciona
+                mais? Temos a mão de obra especializada para te atender.
+              </p>
+            </div>
+            <div class="cartao-servico-acao">
+              <a
+                class="botao-solicitar"
+                href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >Solicitar</a
+              >
+            </div>
+          </li>
+          <li class="cartao-servico">
+            <img
+              src="imagens/servico-abertura-de-veiculos.jpg"
+              alt="Abertura de veículo: profissional destravando a fechadura de um carro"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Abertura de veículos</h2>
+              <p class="cartao-servico-descricao">
+                Esqueceu a chave dentro do carro? A chave do carro quebrou?
+                Perdeu a chave? Resolvemos seu problema com a agilidade que você
+                precisa!
+              </p>
+            </div>
+            <div class="cartao-servico-acao">
+              <a
+                class="botao-solicitar"
+                href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >Solicitar</a
+              >
+            </div>
+          </li>
+          <li class="cartao-servico">
+            <img
+              src="imagens/servico-vidros-fechaduras-macanetas.jpg"
+              alt="Porta de carro aberta mostrando o mecanismo de vidro e fechadura"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">
+                Reparo em vidros, fechaduras e maçanetas
+              </h2>
+              <p class="cartao-servico-descricao">
+                Problemas em acionar o sistema de vidros do seu carro? Algum
+                problema nas fechaduras e maçanetas? Nós podemos te ajudar!
+              </p>
+            </div>
+            <div class="cartao-servico-acao">
+              <a
+                class="botao-solicitar"
+                href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >Solicitar</a
+              >
+            </div>
+          </li>
+          <li class="cartao-servico">
+            <img
+              src="imagens/servico-externo.jpg"
+              alt="Van da Quaglicar equipada para atendimento externo de chaveiro"
+              loading="lazy"
+            />
+            <div class="cartao-servico-texto">
+              <h2 class="cartao-servico-titulo">Serviço externo</h2>
+              <p class="cartao-servico-descricao">
+                Não consegue chegar até nosso local de atendimento? Nós iremos
+                até você! Veículo equipado para te atender de forma rápida.
+              </p>
+            </div>
+            <div class="cartao-servico-acao">
+              <a
+                class="botao-solicitar"
+                href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >Solicitar</a
+              >
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
 
     <footer class="rodape-site">
