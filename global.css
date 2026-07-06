@@ -1,0 +1,435 @@
+/* ==========================================================================
+   Quaglicar — folha de estilo compartilhada (global.css)
+   Réplica fiel do site atual. Mobile-first. Sem estilos inline.
+   ========================================================================== */
+
+/* Paleta e medidas do tema atual, em variaveis semanticas por COR (pt-BR) */
+:root {
+  --verde-petroleo: #103e4d;  /* verde petroleo */
+  --laranja: #f0851d;         /* laranja */
+  --azul: #2f5aae;            /* azul */
+  --branco: #ffffff;          /* branco */
+  --cinza-claro: #f4f5f7;     /* cinza claro */
+  --grafite: #272626;         /* grafite */
+  --largura-maxima-conteudo: 1200px;
+  --largura-maxima-logo: 160px;
+  --fonte-padrao: Arial, Helvetica, sans-serif;
+}
+
+/* Reset leve */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-padrao);
+  color: var(--grafite);
+  background-color: var(--branco);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--azul);
+}
+
+/* ==========================================================================
+   Cabecalho e navegacao
+   ========================================================================== */
+.cabecalho-site {
+  background-color: var(--verde-petroleo);
+  color: var(--branco);
+}
+
+.cabecalho-conteudo {
+  max-width: var(--largura-maxima-conteudo);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cabecalho-logo {
+  width: var(--largura-maxima-logo);
+  max-width: var(--largura-maxima-logo);
+}
+
+.menu-principal {
+  width: 100%;
+}
+
+.menu-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+
+.menu-link {
+  color: var(--laranja);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 0.35rem 0.25rem;
+  display: inline-block;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  color: var(--cinza-claro);
+}
+
+/* item da pagina atual */
+.menu-link-ativo {
+  color: var(--azul);
+  border-bottom: 2px solid var(--azul);
+}
+
+/* ==========================================================================
+   Conteudo principal
+   ========================================================================== */
+.conteudo-principal {
+  max-width: var(--largura-maxima-conteudo);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.titulo-pagina {
+  color: var(--azul);
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.titulo-secao {
+  color: var(--azul);
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+/* Faixa da frase no topo do inicio */
+.faixa-frase {
+  width: 100%;
+  margin: 0 auto 1rem;
+}
+
+.faixa-frase img {
+  width: 100%;
+}
+
+/* Destaques — mesma estrutura de card dos servicos, sem botao */
+.grade-destaques {
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   Grid de servicos (Inicio)
+   ========================================================================== */
+.grade-servicos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.cartao-servico {
+  background-color: var(--cinza-claro);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cartao-servico img {
+  width: 100%;
+}
+
+/* Texto extraido das artes (antes embutido na imagem), agora HTML real */
+.cartao-servico-texto {
+  padding: 1rem 1rem 0.75rem;
+  flex: 1 1 auto;
+}
+
+.cartao-servico-titulo {
+  color: var(--verde-petroleo);
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.cartao-servico-descricao {
+  margin: 0;
+  color: var(--grafite);
+}
+
+.cartao-servico-acao {
+  padding: 0.25rem 1rem 1rem;
+  text-align: center;
+}
+
+/* Botao Solicitar / Fale conosco (estilo WhatsApp) */
+.botao-solicitar {
+  display: inline-block;
+  background-color: var(--laranja);
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.65rem 1.75rem;
+  border-radius: 999px;
+}
+
+.botao-solicitar:hover,
+.botao-solicitar:focus {
+  background-color: var(--azul);
+  color: var(--branco);
+}
+
+/* ==========================================================================
+   Grade de depoimentos (Feedbacks)
+   ========================================================================== */
+.grade-depoimentos {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Cada depoimento e um link (o card inteiro leva a revisao original) */
+.testemunho {
+  position: relative;
+  background-color: var(--cinza-claro);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--verde-petroleo);
+  display: flex;
+  flex-direction: column;
+  color: var(--grafite);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.testemunho:hover,
+.testemunho:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+.depoimento-nome {
+  color: var(--verde-petroleo);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+/* Dica "ver original" exibida no hover, sem JS */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--verde-petroleo);
+  color: var(--branco);
+  font-size: 0.75rem;
+  font-weight: normal;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 1;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.depoimento-avaliacoes {
+  color: var(--grafite);
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 0 0 0.5rem;
+}
+
+.depoimento-estrelas {
+  color: var(--laranja);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+}
+
+.depoimento-texto {
+  margin: 0;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   Historia
+   ========================================================================== */
+.texto-historia {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.texto-historia p {
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+.imagens-historia {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.imagens-historia img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.imagem-historia-larga {
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.imagem-historia-larga img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   Contato
+   ========================================================================== */
+.bloco-contato {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bloco-contato img {
+  width: 100%;
+  max-width: 640px;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+
+.dados-contato {
+  font-size: 1.15rem;
+  margin: 1rem 0 2rem;
+}
+
+.dados-contato a {
+  color: var(--azul);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Aviso "Em breve" (Nossa equipe)
+   ========================================================================== */
+.aviso-em-breve {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--grafite);
+}
+
+.aviso-em-breve p {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Rodape
+   ========================================================================== */
+.rodape-site {
+  background-color: var(--verde-petroleo);
+  color: var(--branco);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+}
+
+.rodape-site a {
+  color: var(--laranja);
+  text-decoration: none;
+}
+
+.rodape-site a:hover,
+.rodape-site a:focus {
+  color: var(--cinza-claro);
+}
+
+/* ==========================================================================
+   Responsivo — telas maiores
+   ========================================================================== */
+@media (min-width: 600px) {
+  .cabecalho-conteudo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-principal {
+    width: auto;
+  }
+
+  .grade-servicos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grade-depoimentos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grade-destaques {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagens-historia {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grade-servicos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grade-depoimentos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
