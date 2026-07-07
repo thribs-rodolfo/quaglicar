@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "crons": [
     {
-      "path": "/api/manter-ativo",
+      "path": "/api/manter-controle-chaveiro-ativo",
       "schedule": "0 6 * * *"
     }
   ],
