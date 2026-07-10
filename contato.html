@@ -22,26 +22,18 @@
           alt="Logotipo da Quaglicar, chaveiro automotivo" />
         <nav class="menu-principal" aria-label="Menu principal">
           <ul class="menu-lista">
-            <li>
-              <a class="menu-link" href="/">Início</a>
-            </li>
-            <li>
-              <a class="menu-link" href="/feedbacks">Feedbacks</a>
-            </li>
-            <li>
-              <a class="menu-link" href="/historia">História</a>
-            </li>
+            <li><a class="menu-link" href="/">Início</a></li>
+            <li><a class="menu-link" href="/feedbacks">Feedbacks</a></li>
+            <li><a class="menu-link" href="/historia">História</a></li>
             <li>
               <a
                 class="menu-link menu-link-ativo"
                 href="/contato"
-                aria-current="page"></a>
+                aria-current="page">
                 Contato
               </a>
             </li>
-            <li>
-              <a class="menu-link" href="/nossa-equipe">Nossa equipe</a>
-            </li>
+            <li><a class="menu-link" href="/nossa-equipe">Nossa equipe</a></li>
           </ul>
         </nav>
       </div>
@@ -52,20 +44,33 @@
 
       <!-- Contatos em HTML (antes era imagem) + mapa, lado a lado como no original -->
       <section class="bloco-contato">
-        <a
-          data-acao="chamar-whatsapp"
-          href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-          target="_blank"
-          rel="noopener noreferrer nofollow">
-          <img
-            src="imagens/clique-e-fale-conosco.jpg"
-            alt="Clique e fale conosco pelo WhatsApp"
-            loading="lazy" />
-        </a>
+        <div class="contato-info">
+          <h2 class="contato-rotulo">Endereço</h2>
+          <p>
+            Av. Barão do Rio Branco, 237, Manoel Honório, Juiz de Fora - MG,
+            CEP: 36045-120
+          </p>
 
-        <p class="dados-contato">
-          WhatsApp:
+          <h2 class="contato-rotulo">Telefones</h2>
+          <p>
+            (32) 99987-9605 WhatsApp
+            <br />
+            (32) 99123-7083
+            <br />
+            (32) 3224-3032
+          </p>
+
+          <h2 class="contato-rotulo">E-mail</h2>
+          <p>
+            <a
+              href="mailto:comercial@quaglicar.com.br"
+              data-acao="enviar-email">
+              comercial@quaglicar.com.br
+            </a>
+          </p>
+
           <a
+            class="botao-solicitar"
             href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
             data-acao="chamar-whatsapp"
             target="_blank"
@@ -74,14 +79,12 @@
           </a>
         </div>
 
-        <a
-          class="botao-solicitar"
-          href="https://wa.me/5532999879605?text=Ol%C3%A1%21+Vim+do+site+%2C+gostaria+de+fazer+um+or%C3%A7amento+por+favor%21"
-          data-acao="chamar-whatsapp"
-          target="_blank"
-          rel="noopener noreferrer nofollow">
-          Fale conosco
-        </a>
+        <iframe
+          class="mapa-contato"
+          src="https://www.google.com/maps?q=Av.+Bar%C3%A3o+do+Rio+Branco,+237,+Manoel+Hon%C3%B3rio,+Juiz+de+Fora+-+MG&output=embed"
+          title="Mapa do endereço da Quaglicar em Juiz de Fora"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </section>
     </main>
 
