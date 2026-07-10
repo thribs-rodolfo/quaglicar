@@ -4,20 +4,17 @@ if (typeof window === "undefined") {
   )
 }
 
-const vercelAnalytics = window?.va ?? null
-const filaVercelAnalytics = window?.vaq ?? null
+const vercelAnalytics = window.va ?? null
 
-function enfileirarEvento(evento)
+function enfileirarEvento(tipo, corpo)
 {
-  const tipo = evento?.tipo ?? null
-  const corpo = evento?.corpo ?? null
   if (typeof tipo !== "string") {
     throw new Error("parâmetro tipo inválido. Verifique se o programa está sendo executado em navegador de Internet")
   }
   if (typeof corpo !== "object") {
     throw new Error("parâmetro corpo inválido. Verifique se o programa está sendo executado em navegador de Internet")
   }
-  if (filaVercelAnalytics === null)
+  if (Array.isArray(window.vaq) === false)
   {
     window.vaq = []
   }
@@ -34,7 +31,7 @@ function registrarEvento(evento)
   if (acao === null) {
     throw new Error("parâmetro acao ausente. Verifique se o programa está sendo executado em navegador de Internet")
   }
-  const caminho = window?.location?.pathname ?? null
+  const caminho = window.location?.pathname ?? null
   if (caminho === null) {
     throw new Error("parâmetro caminho ausente. Verifique se o programa está sendo executado em navegador de Internet")
   }
@@ -50,7 +47,6 @@ if (typeof document === "undefined") {
   )
 }
 
-// @erro: vamos usar seletores mais específicos. Não tem necessidade de ser âncora com href
 function ligarRastreioDosEventos()
 {
   const botoesEvento = document.querySelectorAll('[data-acao]')
