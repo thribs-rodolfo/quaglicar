@@ -1,55 +1,94 @@
-// Medição de visitas e de intenção de orçamento da Quaglicar.
+// Medição de intenção de orçamento da Quaglicar.
 //
-// Objetivo: além das visitas de página (medidas pelo script do Vercel Web
-// Analytics), registrar cada clique num botão que abre o WhatsApp como um evento
-// nomeado — é o sinal mais próximo de "pedido de orçamento" que o site consegue
-// observar. A venda em si é fechada dentro do WhatsApp e não é visível aqui.
+// Registra cada clique num botão de "chamar no WhatsApp" como um evento nomeado
+// do Vercel Web Analytics — é o sinal mais próximo de "pedido de orçamento" que
+// o site consegue observar. A venda em si é fechada dentro do WhatsApp e não é
+// visível aqui.
 //
-// Este arquivo é servido do próprio domínio, então passa na CSP estrita
-// (script-src 'self') sem precisar afrouxar nada.
+// Servido do próprio domínio: passa na CSP estrita (script-src 'self') sem
+// afrouxar nada. Não usamos preventDefault — se a medição falhar, o link do
+// WhatsApp ainda abre normalmente.
 
-// Fila provisória do Vercel Web Analytics. Enfileira um evento (tipo + dados)
-// para o script de coleta (/_vercel/insights/script.js) processar assim que
-// carregar. Os parâmetros são nomeados e explícitos — não dependemos do objeto
-// implícito `arguments`, e a fila é criada por cláusula de guarda em vez do
-// operador OR.
-function enfileirarEventoDeAnalise(tipoDeEvento, dadosDoEvento) {
-  if (!window.vaq) {
-    window.vaq = [];
+if (typeof window === "undefined")
+{
+  throw new Error(
+    "parâmetro window ausente. Verifique se o programa está sendo executado em navegador de Internet",
+  )
+}
+
+const { va: vercelAnalytics = null } = window ?? {}
+
+// Fila provisória do Vercel Web Analytics: enquanto o script real de coleta
+// (/_vercel/insights/script.js) não carrega, guardamos cada evento em
+// window.vaq; ao carregar, o Vercel esvazia essa fila. A fila é CRIADA quando
+// ainda não existe — sua ausência é o estado normal no início da página.
+function enfileirarEventoDeAnalise(tipo, corpo)
+{
+  if (typeof tipo !== "string")
+  {
+    throw new Error("tipo de evento inválido")
   }
-  window.vaq.push([tipoDeEvento, dadosDoEvento]);
+  if (!window.vaq)
+  {
+    window.vaq = []
+  }
+  window.vaq.push([tipo, corpo])
 }
 
 // Só instala a fila provisória se o Vercel ainda não tiver colocado a função
-// real de coleta no lugar (guarda em vez do operador OR).
-if (!window.va) {
-  window.va = enfileirarEventoDeAnalise;
+// real de coleta no lugar.
+if (vercelAnalytics === null)
+{
+  window.va = enfileirarEventoDeAnalise
 }
 
-// Registra um clique num botão de orçamento (que abre o WhatsApp).
-function registrarCliqueDeOrcamento() {
+// Handler de clique: lê a ação declarada no próprio elemento (data-acao) e o
+// caminho da página, e registra o evento. currentTarget é o elemento que tem o
+// ouvinte (o dono do data-acao), não um filho eventualmente clicado.
+function registrarCliqueDeChamarWhatsapp(evento)
+{
+  const acao = evento?.currentTarget?.dataset?.acao ?? null
+  if (acao === null)
+  {
+    throw new Error("parâmetro acao ausente. O elemento clicado precisa do atributo data-acao")
+  }
+  const { location: { pathname: caminho = null } = {} } = window ?? {}
+  if (caminho === null)
+  {
+    throw new Error("parâmetro caminho ausente. Verifique se o programa está sendo executado em navegador de Internet")
+  }
   window.va("event", {
-    name: "clicou-orcamento",
-    pagina: window.location.pathname
-  });
+    name: "clique-" + acao,
+    caminho,
+  })
 }
 
-// Liga o rastreio a todos os links que abrem o WhatsApp, cobrindo tanto o
-// formato curto (wa.me/<numero>) quanto o formato completo de envio
-// (api.whatsapp.com/send e web.whatsapp.com/send). Em páginas sem esses links,
-// o laço simplesmente não faz nada.
-function ligarRastreioDosBotoesDeOrcamento() {
-  var botoesDeOrcamento = document.querySelectorAll('a[href*="wa.me/"], a[href*="whatsapp.com/send"]');
-  var indice = 0;
-  for (indice = 0; indice < botoesDeOrcamento.length; indice = indice + 1) {
-    botoesDeOrcamento[indice].addEventListener("click", registrarCliqueDeOrcamento);
+if (typeof document === "undefined")
+{
+  throw new Error(
+    "parâmetro document ausente. Verifique se o programa está sendo executado em navegador de Internet",
+  )
+}
+
+// Liga o rastreio aos botões marcados como ação de chamar no WhatsApp. Seletor
+// por data-acao (não por âncora/href): funciona em <a>, <button> ou qualquer
+// elemento, e independe do formato do link.
+function ligarRastreioDosBotoesDeChamarWhatsapp()
+{
+  const botoesDeChamarWhatsapp = document.querySelectorAll('[data-acao="chamar-whatsapp"]')
+  for (let indice = 0; indice < botoesDeChamarWhatsapp.length; indice++)
+  {
+    botoesDeChamarWhatsapp[indice].addEventListener("click", registrarCliqueDeChamarWhatsapp)
   }
 }
 
-// Com o atributo defer o DOM já está pronto quando este arquivo roda; ainda
-// assim protegemos contra o caso de ainda estar carregando.
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", ligarRastreioDosBotoesDeOrcamento);
-} else {
-  ligarRastreioDosBotoesDeOrcamento();
+// Com defer o DOM já está pronto quando este arquivo roda; ainda assim cobrimos
+// os dois ramos — sem o else, em página já carregada o rastreio nunca ligaria.
+if (document.readyState === "loading")
+{
+  document.addEventListener("DOMContentLoaded", ligarRastreioDosBotoesDeChamarWhatsapp)
+}
+else
+{
+  ligarRastreioDosBotoesDeChamarWhatsapp()
 }
