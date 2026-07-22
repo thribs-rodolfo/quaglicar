@@ -6,11 +6,83 @@
     <title>Quaglicar — Chaveiro Automotivo em Juiz de Fora/MG</title>
     <meta
       name="description"
-      content="Quaglicar: chaveiro automotivo em Juiz de Fora desde 1954. Chaves codificadas, canivete, cópia de chave, reparo de fechaduras e chaveiro móvel." />
+      content="Quaglicar: chaveiro automotivo em Juiz de Fora desde 1954. Chaves codificadas, canivete, cópia de chave, manutenção de vidros, reparo de fechaduras e chaveiro móvel." />
     <link rel="icon" href="imagens/favicon.png" />
     <link rel="stylesheet" href="global.css" />
     <script defer src="/index.js"></script>
     <script defer src="/analise-visitas.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Locksmith",
+        "name": "Quaglicar — Chaveiro Automotivo",
+        "image": "https://quaglicar.com.br/imagens/logo-quaglicar.jpg",
+        "url": "https://quaglicar.com.br/",
+        "telephone": "+553299879605",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Barão do Rio Branco, 237, Manoel Honório",
+          "addressCountry": "BR"
+        },
+        "areaServed": "Juiz de Fora e região",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "12:00"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Manutenção de vidros e fechaduras automotivas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Cópia de chave" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Chave codificada" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Abertura de veículos"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Chaveiro móvel / serviço externo"
+              }
+            }
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <header class="cabecalho-site">
@@ -132,15 +204,18 @@
           </li>
           <li class="cartao-servico">
             <h2 class="cartao-servico-titulo">
-              Reparo em vidros, fechaduras e maçanetas
+              Manuntenção e reparo de vidros, fechaduras e maçanetas
             </h2>
             <img
               src="imagens/mecanismo-interno-porta-carro.jpg"
               alt="Porta de carro aberta mostrando o mecanismo de vidro e fechadura"
               loading="lazy" />
             <p class="cartao-servico-descricao">
-              Problemas em acionar o sistema de vidros do seu carro? Algum
-              problema nas fechaduras e maçanetas? Nós podemos te ajudar!
+              Fazemos a
+              <strong>manutenção de vidros e fechaduras</strong>
+              do seu veículo: máquina de vidro que não sobe, fechadura ou
+              maçaneta travada ou com defeito. Problemas para acionar os vidros?
+              Nós resolvemos.
             </p>
             <div class="cartao-servico-acao">
               <a
